@@ -95,7 +95,8 @@ export default function Team() {
             email: "pratiktillekar57@gmail.com",
             linkedin: "https://www.linkedin.com/in/pratik-sde/",
             github: "https://github.com/CodeWithPrat",
-            resume: "https://drive.google.com/file/d/1enOac1exWN4To4QOKLLB3CKhxWvzAbky/view?usp=sharing",
+            resume: "https://drive.google.com/file/d/1enOac1exWN4To4QOKLLB3CKhxWvzAbky/view",
+            resumeEmbedUrl: "https://drive.google.com/file/d/1enOac1exWN4To4QOKLLB3CKhxWvzAbky/preview",
             bio: "Innovative Java Full Stack Developer with 1.8 years of experience specializing in scalable web applications. Expert in Java, Spring Boot, React.js, SQL, and cloud-based solutions. Proven ability to deliver high-performance software and collaborate across teams to exceed goals.",
             projects: [
                 "Machine Tool Condition Monitoring Dashboard",
@@ -151,6 +152,38 @@ export default function Team() {
         }
     ];
 
+    const getGoogleDriveEmbedUrl = (url) => {
+        // Check if it's a Google Drive URL
+        if (url.includes('drive.google.com/file/d/')) {
+            // Extract the file ID from the URL
+            const fileIdMatch = url.match(/\/d\/([^/]+)/);
+            if (fileIdMatch && fileIdMatch[1]) {
+                const fileId = fileIdMatch[1];
+                // Return the embed URL format
+                return `https://drive.google.com/file/d/${fileId}/preview`;
+            }
+        }
+        // Return original URL if not a Google Drive URL or couldn't extract ID
+        return url;
+    };
+
+    const getGoogleDriveDownloadUrl = (url) => {
+        // Check if it's a Google Drive URL
+        if (url.includes('drive.google.com/file/d/')) {
+            // Extract the file ID from the URL
+            const fileIdMatch = url.match(/\/d\/([^/]+)/);
+            if (fileIdMatch && fileIdMatch[1]) {
+                const fileId = fileIdMatch[1];
+                // Return the direct download URL format
+                return `https://drive.google.com/uc?export=download&id=${fileId}`;
+            }
+        }
+        // Return original URL if not a Google Drive URL or couldn't extract ID
+        return url;
+    };
+
+
+
     // State for expanded card
     const [expandedId, setExpandedId] = useState(null);
     const [selectedProject, setSelectedProject] = useState(null);
@@ -159,6 +192,7 @@ export default function Team() {
     const [showResumeOptions, setShowResumeOptions] = useState(false);
     const [isResumePreviewOpen, setIsResumePreviewOpen] = useState(false);
     const [isResumeFullscreen, setIsResumeFullscreen] = useState(false);
+
 
     // Refs
     const modalRef = useRef(null);
@@ -227,11 +261,12 @@ export default function Team() {
         setIsResumeFullscreen(!isResumeFullscreen);
     };
 
-    const downloadResume = () => {
-        // In a real implementation, this would trigger a download
-        // For this example, we'll just log a message
-        console.log(`Downloading resume for ${selectedProject.name}`);
-        window.open(selectedProject.resume, '_blank');
+    const downloadResume = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const downloadUrl = getGoogleDriveDownloadUrl(selectedProject.resume);
+        window.open(downloadUrl, '_blank');
     };
 
     return (
@@ -621,7 +656,7 @@ export default function Team() {
                         </div>
                         <div className="w-full h-[90%] overflow-auto border border-gray-300 rounded">
                             <iframe
-                                src={selectedProject.resume}
+                                src={getGoogleDriveEmbedUrl(selectedProject.resume)}
                                 title={`${selectedProject.name}'s Resume`}
                                 className="w-full h-full"
                             />

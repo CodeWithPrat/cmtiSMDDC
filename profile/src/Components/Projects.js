@@ -245,7 +245,11 @@ const Projects = () => {
   
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-900 dark:to-gray-800 p-6">
+    <div className="min-h-screen  bg-slate-900 text-white p-6">
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-900/20 via-purple-900/20 to-blue-900/20" />
+          <div className="absolute inset-0 opacity-20">
+            <div className="h-full w-full bg-[linear-gradient(to_right,theme(colors.slate.800/70)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.slate.800/70)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          </div>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div 
@@ -254,11 +258,11 @@ const Projects = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 relative inline-block">
+          <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 relative inline-block">
             Featured Projects
             <span className="absolute -bottom-2 left-0 w-full h-1 bg-blue-500 rounded"></span>
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-100 dark:text-gray-300 max-w-2xl mx-auto">
             Explore my portfolio of projects showcasing my expertise in web development
           </p>
         </motion.div>
@@ -276,8 +280,8 @@ const Projects = () => {
             >
               <div 
                 onClick={() => setSelectedProject(project)}
-                className="h-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col"
-              >
+                className="h-full bg-gradient-to-r from-[#1F1C2C] to-[#928DAB] dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden flex flex-col">
+              
                 <div className="relative overflow-hidden h-56">
                   <img
                     src={project.image}
@@ -294,10 +298,10 @@ const Projects = () => {
                 </div>
                 
                 <div className="p-6 flex-grow flex flex-col">
-                  <h3 className="text-xl font-bold text-blue-600 dark:text-blue-400 mb-3 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-xl font-bold text-cyan-400 dark:text-blue-400 mb-3 group-hover:text-blue-100 dark:group-hover:text-blue-300 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-5 flex-grow">
+                  <p className="text-gray-200 dark:text-gray-300 mb-5 flex-grow">
                     {project.shortDescription}
                   </p>
                   
@@ -335,19 +339,19 @@ const Projects = () => {
             transition={{ duration: 0.3 }}
           >
             <motion.div 
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden"
+              className="bg-gray-800 rounded-2xl shadow-2xl w-full max-w-6xl max-h-[90vh] overflow-hidden"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, type: "spring" }}
             >
-              <div className="flex justify-end p-4 sticky top-0 z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm">
+              <div className="flex justify-end p-4 sticky top-0 z-10 bg-gray-800 dark:bg-gray-800/90 backdrop-blur-sm">
                 <button
                   onClick={closeModal}
                   className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full transition-colors"
                   aria-label="Close modal"
                 >
-                  <X className="w-6 h-6 text-gray-500 dark:text-gray-300" />
+                  <X className="w-6 h-6 text-gray-100 dark:text-gray-300" />
                 </button>
               </div>
               
@@ -355,7 +359,7 @@ const Projects = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6">
                   <div className="space-y-6">
                     {/* Image Gallery */}
-                    <div className="relative rounded-xl overflow-hidden shadow-lg bg-gray-100 dark:bg-gray-700">
+                    <div className="relative rounded-xl overflow-hidden shadow-lg bg-gray-800 dark:bg-gray-700">
                       <div className="aspect-w-16 aspect-h-9 relative">
                         <img
                           src={selectedProject.gallery?.[currentImageIndex] || selectedProject.image}
@@ -461,10 +465,10 @@ const Projects = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
-                      className="bg-gray-50 dark:bg-gray-700/40 p-5 rounded-xl shadow-sm"
+                      className="bg-gray-800 dark:bg-gray-700/40 p-5 rounded-xl shadow-sm"
                     >
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">Overview</h3>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{selectedProject.overview}</p>
+                      <h3 className="text-xl font-semibold text-gray-200 dark:text-gray-200 mb-3">Overview</h3>
+                      <p className="text-gray-200 dark:text-gray-300 leading-relaxed">{selectedProject.overview}</p>
                     </motion.section>
 
                     <motion.section
@@ -472,7 +476,7 @@ const Projects = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">Key Features</h3>
+                      <h3 className="text-xl font-semibold text-gray-200 dark:text-gray-200 mb-3">Key Features</h3>
                       <ul className="space-y-3">
                         {selectedProject.keyFeatures.map((feature, index) => (
                           <motion.li 
@@ -487,7 +491,7 @@ const Projects = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                               </svg>
                             </span>
-                            <span className="text-gray-600 dark:text-gray-300">{feature}</span>
+                            <span className="text-gray-200 dark:text-gray-300">{feature}</span>
                           </motion.li>
                         ))}
                       </ul>
@@ -498,17 +502,17 @@ const Projects = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-3">Technical Implementation</h3>
+                      <h3 className="text-xl font-semibold text-gray-200 dark:text-gray-200 mb-3">Technical Implementation</h3>
                       
                       <div className="space-y-4">
-                        <div className="bg-gray-50 dark:bg-gray-700/40 p-4 rounded-lg">
-                          <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">Backend Architecture</h4>
-                          <p className="text-gray-600 dark:text-gray-300">{selectedProject.backend}</p>
+                        <div className="bg-gradient-to-r from-[#1F1C2C] to-[#928DAB] dark:bg-gray-700/40 p-4 rounded-lg">
+                          <h4 className="font-medium text-gray-100 dark:text-gray-200 mb-2">Backend Architecture</h4>
+                          <p className="text-gray-300 dark:text-gray-300">{selectedProject.backend}</p>
                         </div>
                         
-                        <div className="bg-gray-50 dark:bg-gray-700/40 p-4 rounded-lg">
-                          <h4 className="font-medium text-gray-800 dark:text-gray-200 mb-2">Deployment Strategy</h4>
-                          <p className="text-gray-600 dark:text-gray-300">{selectedProject.deployment}</p>
+                        <div className="bg-gradient-to-r from-[#1F1C2C] to-[#928DAB] dark:bg-gray-700/40 p-4 rounded-lg">
+                          <h4 className="font-medium text-gray-100 dark:text-gray-200 mb-2">Deployment Strategy</h4>
+                          <p className="text-gray-300 dark:text-gray-300">{selectedProject.deployment}</p>
                         </div>
                       </div>
                     </motion.section>

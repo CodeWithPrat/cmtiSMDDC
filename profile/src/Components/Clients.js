@@ -133,8 +133,8 @@ const Clients = () => {
       
       return (
         <div className="relative flex overflow-hidden w-full py-4">
-          <div className="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-white to-transparent dark:from-gray-900 z-10" />
-          <div className="absolute right-0 top-0 w-24 h-full bg-gradient-to-l from-white to-transparent dark:from-gray-900 z-10" />
+          <div className="absolute left-0 top-0 w-24 h-full z-10" />
+          <div className="absolute right-0 top-0 w-24 h-full z-10" />
           
           <motion.div
             className="flex gap-6"
@@ -154,12 +154,12 @@ const Clients = () => {
             {[...images, ...images].map((item, index) => (
               <motion.div
                 key={`${item.id}-${index}`}
-                className="flex-shrink-0 relative group"
+                className="flex-shrink-0 relative group bg-slate-50"
                 whileHover={{ scale: 1.05, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 blur-xl" />
-                <div className="relative bg-white/90 dark:bg-gray-800/90 backdrop-blur-md p-6 rounded-xl shadow-lg border border-gray-200/50 dark:border-gray-700/50">
+                <div className="relative p-6 rounded-xl shadow-lg ">
                   <img
                     src={item.image}
                     alt={`Client ${item.id}`}
@@ -175,7 +175,7 @@ const Clients = () => {
     };
   
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
+      <div className="min-h-screen bg-slate-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute w-full h-full">
             <div className="absolute -left-1/4 -top-1/4 w-1/2 h-1/2 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-blob" />

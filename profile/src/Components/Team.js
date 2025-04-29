@@ -14,6 +14,17 @@ import Uday4 from "../Images/Team/Uday/Uday4.JPG"
 import Lavanya2 from "../Images/Team/LavanyaAC/Lavanya2.JPG"
 import Lavanya3 from "../Images/Team/LavanyaAC/Lavanya3.JPG"
 import Lavanya6 from "../Images/Team/LavanyaAC/Lavanya6.JPG"
+import Lavanya7 from "../Images/Team/LavanyaAC/Lavanya7.JPG"
+
+import Shalini1 from "../Images/Team/Shalini/Shalini1.JPG"
+import Shalini2 from "../Images/Team/Shalini/Shalini2.JPG"
+import Shalini3 from "../Images/Team/Shalini/Shalini3.JPG"
+import Shalini4 from "../Images/Team/Shalini/SHalini4.JPG"
+
+import Moulya1 from "../Images/Team/Moulya/Moulya1.JPG"
+import Moulya2 from "../Images/Team/Moulya/Moulya2.JPG"
+import Moulya3 from "../Images/Team/Moulya/Moulya3.JPG"
+import Moulya4 from "../Images/Team/Moulya/Moulya4.JPG"
 
 import Pratik from "../Images/Team/Pratik.jpeg"
 import Pratik1 from "../Images/Team/Pratik2.JPG"
@@ -67,7 +78,7 @@ export default function Team() {
     const teamMembers = [
         {
             id: 1,
-            name: "Lavanya R",
+            name: "Ms. Lavanya R",
             image: Lavanya,
             specialization: "Frontend Development",
             designation: "Senior Technical Assistant",
@@ -87,7 +98,7 @@ export default function Team() {
         },
         {
             id: 2,
-            name: "Uday Hiremath",
+            name: "Mr. Uday Hiremath",
             image: Uday2,
             specialization: "AI/ML Development",
             designation: "Python AI-ML Developer",
@@ -114,7 +125,7 @@ export default function Team() {
 
         {
             id: 3,
-            name: "Pratik",
+            name: " Mr. Pratik",
             image: Pratik,   // assuming you have imported your image at the top
             specialization: "Frontend and Backend Development, Data Management",
             designation: "Full Stack Developer",
@@ -141,8 +152,8 @@ export default function Team() {
         },
         {
             id: 4,
-            name: "Lavanya AC",
-            image: Lavanya2,
+            name: "Ms. Lavanya A C",
+            image: Lavanya7,
             specialization: "Data Science",
             designation: "Data Analyst",
             comment: "Finding insights in data",
@@ -155,14 +166,13 @@ export default function Team() {
             projects: ["Customer Segmentation Analysis", "Predictive Sales Model", "Interactive Dashboards"],
             gallery: [
                 Lavanya2,
-                Lavanya3,
-                Lavanya6
+                Lavanya3
             ]
         },
         {
             id: 5,
-            name: "James Wilson",
-            image: "/api/placeholder/300/300",
+            name: "Ms. Shalini M N",
+            image: Shalini2,
             specialization: "UX Design",
             designation: "UI/UX Designer",
             comment: "Creating seamless user journeys",
@@ -174,9 +184,29 @@ export default function Team() {
             bio: "James combines user research with creative design to craft engaging digital experiences. His user-centered approach has resulted in significant improvements in user satisfaction and engagement metrics.",
             projects: ["E-commerce UX Redesign", "Mobile App User Flow", "Design System Creation"],
             gallery: [
-                "/api/placeholder/800/600",
-                "/api/placeholder/800/600",
-                "/api/placeholder/800/600"
+                Shalini1,
+                Shalini4,
+                Shalini2,
+            ]
+        },
+        {
+            id: 5,
+            name: "Ms. Moulya",
+            image: Moulya2,
+            specialization: "UX Design",
+            designation: "UI/UX Designer",
+            comment: "Creating seamless user journeys",
+            expertise: ["Figma", "User Research", "Prototyping"],
+            email: "james.wilson@example.com",
+            linkedin: "https://linkedin.com/in/jameswilson",
+            github: "https://github.com/jameswilson",
+            resume: "https://example.com/resume/jameswilson",
+            bio: "James combines user research with creative design to craft engaging digital experiences. His user-centered approach has resulted in significant improvements in user satisfaction and engagement metrics.",
+            projects: ["E-commerce UX Redesign", "Mobile App User Flow", "Design System Creation"],
+            gallery: [
+                Moulya4,
+                Moulya3,
+
             ]
         }
     ];

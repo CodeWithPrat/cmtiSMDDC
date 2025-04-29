@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Linkedin, Github, Mail, FileText, ChevronDown, ChevronUp, X, Download, Maximize, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Linkedin, Github, Mail, FileText, ChevronDown, ChevronUp, X, Download, Maximize, ArrowLeft, ArrowRight, User } from 'lucide-react';
 
 import director from "../Images/Team/Nagahanumaiah.jpg"
 import PV from "../Images/Team/PV.jpg"
@@ -32,6 +32,7 @@ export default function Team() {
             comment: "Driving innovation and technological excellence in manufacturing",
             email: "director@cmti.res.in",
             linkedin: "https://www.linkedin.com/in/dr-nagahanumaiah-17aa524/",
+            profileLink: "https://cmti.res.in/director/",
             bio: "With over 28 years of experience, Dr. Nagahanumaiah is a distinguished leader in manufacturing technology research and development. As Director of CMTI, he has transformed the institute’s mission, fostering innovation, raising technology readiness levels, and achieving significant milestones in patents, technology licensing, and machine development. His expertise spans micro-nano manufacturing, modular machine tools, additive manufacturing, and more, inspiring a new era of technological self-reliance in India."
         },
 
@@ -44,6 +45,7 @@ export default function Team() {
             comment: "Championing smart manufacturing and precision technologies",
             email: "prakashv@cmti.res.in",
             linkedin: "https://www.linkedin.com/in/prakash-vinod-855546190/",
+            profileLink: "https://cmti.res.in/cmtiemployee/prakash-vinod/",
             bio: "Mr. Prakash Vinod is a senior scientist and the Joint Director at CMTI with over 33 years of experience in advanced manufacturing. He leads the Centre for Smart Manufacturing, Precision Machine Tools & Aggregates (C-SMPM), focusing on technology development from TRL3 to TRL8. He has developed over 30 machines/products in domains like ultra-precision machines, Industry 4.0 solutions, SPMs, and micro/nano fabrication. He has been pivotal in establishing the Nano Manufacturing Centre and Industry 4.0 skill development hubs at CMTI. His work supports industrial and academic R&D, consultancy, testing, calibration, noise & vibration analysis, and software application development for manufacturing technologies."
         },
 
@@ -56,6 +58,7 @@ export default function Team() {
             comment: "Innovating in Smart Manufacturing, IIoT, and Digital Twins for the future of manufacturing",
             email: "harithota@cmti.res.in",
             linkedin: "https://www.linkedin.com/in/hari-thota-b022b610b/",
+            profileLink: "https://cmti.res.in/cmtiemployee/harikrishna-satish-thota/",
             bio: "Mr. Harikrishna Satish Thota is a Scientist-D at the Central Manufacturing Technology Institute (CMTI), Bengaluru, with 11 years of experience in Electrical Engineering, Instrumentation, and Control. A Chartered Engineer (IEI) with a Master's degree from Jadavpur University, he has been instrumental in developing Digital Twins, IIoT systems for smart manufacturing, EDGE-AI modules, microfabrication systems, and ultra-precision machine controls. His contributions include technology transfers to MSMEs and award-winning innovations such as the NANOSHAPE-T250 ultra-precision machine. His work in Industry 4.0, predictive maintenance, mixed reality in manufacturing, and micro/nano fabrication continues to drive advancements in manufacturing technologies."
         }
 
@@ -93,14 +96,14 @@ export default function Team() {
             email: "udayhiremath02@gmail.com",
             linkedin: "https://www.linkedin.com/in/uday-hiremath-868375179/",
             github: "",
-            resume: "",
+            resume: "https://drive.google.com/file/d/1_2T3ronDekINhzAifKoHliCONPXwSyLR/view",
             bio: "Uday Hiremath is an experienced AIML Developer specializing in designing, implementing, and optimizing AI and ML models for real-time industrial applications. His work spans digital twins, predictive maintenance, vision-based robotics, and smart manufacturing solutions, demonstrating a commitment to driving innovation in complex systems.",
             projects: [
-                "Digital Twin and Vibration Data Analysis for Predictive Maintenance",
+                "Intellipod",
                 "Vision-Based Contour Following Cobot",
                 "TOF Camera-based 3D Model Development Scanner",
-                "EYE-PEX Smart Glass using Raspberry Pi",
-                "Multi-Assistant Bot"
+                "Digital Twin and Vibration Data Analysis for Predictive Maintenance",
+                "i-preci-spindle-18K",
             ],
             gallery: [
                 Uday3,
@@ -112,7 +115,7 @@ export default function Team() {
         {
             id: 3,
             name: "Pratik",
-            image: Pratik4,   // assuming you have imported your image at the top
+            image: Pratik,   // assuming you have imported your image at the top
             specialization: "Frontend and Backend Development, Data Management",
             designation: "Full Stack Developer",
             comment: "Innovative and detail-oriented full stack developer delivering efficient and scalable web applications.",
@@ -315,9 +318,9 @@ export default function Team() {
                                 key={admin.id}
                                 className={`
                   bg-gray-900 rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer
-                  ${admin.designation === "Director" ? "border-l-4 border-red-500" : ""}
-                  ${admin.designation === "Head Of Department" ? "border-l-4 border-blue-500" : ""}
-                  ${admin.designation === "Group Head" ? "border-l-4 border-green-500" : ""}
+                  ${admin.designation === "Director" ? "border-l-4 border-orange-600" : ""}
+                  ${admin.designation === "Joint Director" ? "border-l-4 border-white" : ""}
+                  ${admin.designation === "Scientist - D" ? "border-l-4 border-green-500" : ""}
                 `}
                                 onClick={() => openModal(admin)}
                             >
@@ -352,6 +355,15 @@ export default function Team() {
                                     <p className="text-gray-300 mb-4">{admin.comment}</p>
                                     <p className="text-gray-400 mb-6"><span className="text-purple-300">Expertise:</span> {admin.expertise}</p>
                                     <div className="flex space-x-4">
+                                        <a
+                                            href={admin.profileLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-gray-400 hover:text-purple-300 transition-colors"
+                                            onClick={(e) => e.stopPropagation()}
+                                        >
+                                            <User size={20} />
+                                        </a>
                                         <a
                                             href={`mailto:${admin.email}`}
                                             className="text-gray-400 hover:text-purple-300 transition-colors"
@@ -627,6 +639,13 @@ export default function Team() {
                                         <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-400 hover:text-purple-300 transition-colors">
                                             <Github size={18} />
                                             <span>GitHub Profile</span>
+                                        </a>
+                                    )}
+
+                                    {selectedProject.profileLink && (
+                                        <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 text-gray-400 hover:text-purple-300 transition-colors">
+                                            <User size={18} />
+                                            <span>Profile</span>
                                         </a>
                                     )}
 

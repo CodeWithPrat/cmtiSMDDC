@@ -1,56 +1,73 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Linkedin, Github, Mail, FileText, ChevronDown, ChevronUp, X, Download, Maximize, ArrowLeft, ArrowRight } from 'lucide-react';
 
+import director from "../Images/Team/Nagahanumaiah.jpg"
+import PV from "../Images/Team/PV.jpg"
+import hari from "../Images/Team/harithota.jpg"
+import Lavanya from "../Images/Team/lavanya.jpg"
+
+import Uday1 from "../Images/Team/Uday/Uday1.jpeg"
+import Uday2 from "../Images/Team/Uday/Uday2.JPG"
+import Uday3 from "../Images/Team/Uday/Uday3.JPG"
+import Uday4 from "../Images/Team/Uday/Uday4.JPG"
+
+import Lavanya2 from "../Images/Team/LavanyaAC/Lavanya2.JPG"
+import Lavanya3 from "../Images/Team/LavanyaAC/Lavanya3.JPG"
+import Lavanya6 from "../Images/Team/LavanyaAC/Lavanya6.JPG"
 
 import Pratik from "../Images/Team/Pratik.jpeg"
 import Pratik1 from "../Images/Team/Pratik2.JPG"
 import Pratik2 from "../Images/Team/Pratik3.JPG"
+import Pratik4 from "../Images/Team/Pratik4.JPG"
 
 export default function Team() {
     // Sample data - replace with your actual team data
     const administrators = [
         {
             id: 1,
-            name: "Jane Smith",
-            image: "/api/placeholder/300/300",
+            name: "Dr. Nagahanumaiah",
+            image: director,
             designation: "Director",
-            expertise: "Strategic Leadership",
-            comment: "Leading innovation through collaboration",
-            email: "jane.smith@example.com",
-            linkedin: "https://linkedin.com/in/janesmith",
-            bio: "Jane has over 15 years of experience in strategic leadership and organizational development. She specializes in driving innovation through collaborative approaches and has successfully led multiple high-impact initiatives."
+            expertise: "Manufacturing Research and Leadership",
+            comment: "Driving innovation and technological excellence in manufacturing",
+            email: "director@cmti.res.in",
+            linkedin: "https://www.linkedin.com/in/dr-nagahanumaiah-17aa524/",
+            bio: "With over 28 years of experience, Dr. Nagahanumaiah is a distinguished leader in manufacturing technology research and development. As Director of CMTI, he has transformed the institute’s mission, fostering innovation, raising technology readiness levels, and achieving significant milestones in patents, technology licensing, and machine development. His expertise spans micro-nano manufacturing, modular machine tools, additive manufacturing, and more, inspiring a new era of technological self-reliance in India."
         },
+
         {
             id: 2,
-            name: "Michael Johnson",
-            image: "/api/placeholder/300/300",
-            designation: "Head Of Department",
-            expertise: "Project Management",
-            comment: "Turning vision into reality",
-            email: "michael.johnson@example.com",
-            linkedin: "https://linkedin.com/in/michaeljohnson",
-            bio: "Michael is an experienced project manager with a proven track record of delivering complex projects on time and within budget. His methodical approach to problem-solving has been instrumental in the success of numerous department initiatives."
+            name: "Mr. Prakash Vinod",
+            image: PV,
+            designation: "Joint Director",
+            expertise: " Smart Manufacturing, Ultra-Precision Machines, Industry 4.0",
+            comment: "Championing smart manufacturing and precision technologies",
+            email: "prakashv@cmti.res.in",
+            linkedin: "https://www.linkedin.com/in/prakash-vinod-855546190/",
+            bio: "Mr. Prakash Vinod is a senior scientist and the Joint Director at CMTI with over 33 years of experience in advanced manufacturing. He leads the Centre for Smart Manufacturing, Precision Machine Tools & Aggregates (C-SMPM), focusing on technology development from TRL3 to TRL8. He has developed over 30 machines/products in domains like ultra-precision machines, Industry 4.0 solutions, SPMs, and micro/nano fabrication. He has been pivotal in establishing the Nano Manufacturing Centre and Industry 4.0 skill development hubs at CMTI. His work supports industrial and academic R&D, consultancy, testing, calibration, noise & vibration analysis, and software application development for manufacturing technologies."
         },
+
         {
             id: 3,
-            name: "Sarah Williams",
-            image: "/api/placeholder/300/300",
-            designation: "Group Head",
-            expertise: "Team Development",
-            comment: "Building high-performing teams",
-            email: "sarah.williams@example.com",
-            linkedin: "https://linkedin.com/in/sarahwilliams",
-            bio: "Sarah is passionate about developing high-performing teams. With her background in organizational psychology, she has transformed team dynamics and productivity across multiple departments."
+            name: "Mr. Harikrishna Satish Thota",
+            image: hari,
+            designation: "Scientist - D",
+            expertise: " Smart Manufacturing, IIoT Systems, Digital Twin Development, Ultra-Precision Machines",
+            comment: "Innovating in Smart Manufacturing, IIoT, and Digital Twins for the future of manufacturing",
+            email: "harithota@cmti.res.in",
+            linkedin: "https://www.linkedin.com/in/hari-thota-b022b610b/",
+            bio: "Mr. Harikrishna Satish Thota is a Scientist-D at the Central Manufacturing Technology Institute (CMTI), Bengaluru, with 11 years of experience in Electrical Engineering, Instrumentation, and Control. A Chartered Engineer (IEI) with a Master's degree from Jadavpur University, he has been instrumental in developing Digital Twins, IIoT systems for smart manufacturing, EDGE-AI modules, microfabrication systems, and ultra-precision machine controls. His contributions include technology transfers to MSMEs and award-winning innovations such as the NANOSHAPE-T250 ultra-precision machine. His work in Industry 4.0, predictive maintenance, mixed reality in manufacturing, and micro/nano fabrication continues to drive advancements in manufacturing technologies."
         }
+
     ];
 
     const teamMembers = [
         {
             id: 1,
-            name: "Alex Thompson",
-            image: "/api/placeholder/300/300",
+            name: "Lavanya R",
+            image: Lavanya,
             specialization: "Frontend Development",
-            designation: "Senior Developer",
+            designation: "Senior Technical Assistant",
             comment: "Crafting beautiful user experiences",
             expertise: ["React", "JavaScript", "UI/UX"],
             email: "alex.thompson@example.com",
@@ -67,27 +84,35 @@ export default function Team() {
         },
         {
             id: 2,
-            name: "Priya Patel",
-            image: "/api/placeholder/300/300",
-            specialization: "Backend Development",
-            designation: "Software Engineer",
-            comment: "Building robust systems",
-            expertise: ["Node.js", "Python", "Databases"],
-            email: "priya.patel@example.com",
-            linkedin: "https://linkedin.com/in/priyapatel",
-            github: "https://github.com/priyapatel",
-            resume: "https://example.com/resume/priyapatel",
-            bio: "Priya specializes in backend architecture and database optimization. Her work has improved system performance and scalability across multiple critical applications.",
-            projects: ["API Gateway Implementation", "Database Migration", "Microservices Architecture"],
+            name: "Uday Hiremath",
+            image: Uday2,
+            specialization: "AI/ML Development",
+            designation: "Python AI-ML Developer",
+            comment: "Creating intelligent and data-driven solutions",
+            expertise: ["Machine Learning", "Deep Learning", "LabView", "Computer Vision", "Python", "Django", "IIoT", "Data Science", "NLP"],
+            email: "udayhiremath02@gmail.com",
+            linkedin: "https://www.linkedin.com/in/uday-hiremath-868375179/",
+            github: "",
+            resume: "",
+            bio: "Uday Hiremath is an experienced AIML Developer specializing in designing, implementing, and optimizing AI and ML models for real-time industrial applications. His work spans digital twins, predictive maintenance, vision-based robotics, and smart manufacturing solutions, demonstrating a commitment to driving innovation in complex systems.",
+            projects: [
+                "Digital Twin and Vibration Data Analysis for Predictive Maintenance",
+                "Vision-Based Contour Following Cobot",
+                "TOF Camera-based 3D Model Development Scanner",
+                "EYE-PEX Smart Glass using Raspberry Pi",
+                "Multi-Assistant Bot"
+            ],
             gallery: [
-                "/api/placeholder/800/600",
-                "/api/placeholder/800/600"
+                Uday3,
+                Uday4,
+                Uday1
             ]
         },
+
         {
             id: 3,
             name: "Pratik",
-            image: Pratik,   // assuming you have imported your image at the top
+            image: Pratik4,   // assuming you have imported your image at the top
             specialization: "Frontend and Backend Development, Data Management",
             designation: "Full Stack Developer",
             comment: "Innovative and detail-oriented full stack developer delivering efficient and scalable web applications.",
@@ -113,8 +138,8 @@ export default function Team() {
         },
         {
             id: 4,
-            name: "Emily Rodriguez",
-            image: "/api/placeholder/300/300",
+            name: "Lavanya AC",
+            image: Lavanya2,
             specialization: "Data Science",
             designation: "Data Analyst",
             comment: "Finding insights in data",
@@ -126,8 +151,9 @@ export default function Team() {
             bio: "Emily transforms complex data into actionable insights. Her data models have helped identify key business opportunities and optimize decision-making processes.",
             projects: ["Customer Segmentation Analysis", "Predictive Sales Model", "Interactive Dashboards"],
             gallery: [
-                "/api/placeholder/800/600",
-                "/api/placeholder/800/600"
+                Lavanya2,
+                Lavanya3,
+                Lavanya6
             ]
         },
         {
@@ -295,13 +321,33 @@ export default function Team() {
                 `}
                                 onClick={() => openModal(admin)}
                             >
-                                <div className="relative h-64">
-                                    <img src={admin.image} alt={admin.name} className="w-full h-full object-cover object-center" />
-                                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4">
+                                <div className="relative h-64 w-full overflow-hidden rounded-t-xl">
+                                    {/* Blurred Background */}
+                                    <div
+                                        className="absolute inset-0"
+                                        style={{
+                                            backgroundImage: `url(${admin.image})`,
+                                            backgroundSize: 'cover',
+                                            backgroundPosition: 'center',
+                                            filter: 'blur(20px) brightness(0.7)',
+                                            opacity: 0.6,
+                                        }}
+                                    ></div>
+
+                                    {/* Clear Foreground Image */}
+                                    <img
+                                        src={admin.image}
+                                        alt={admin.name}
+                                        className="relative z-10 w-full h-full object-contain object-center p-1"
+                                    />
+
+                                    {/* Name and Designation at Bottom */}
+                                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent p-4 z-20">
                                         <h3 className="text-xl font-bold">{admin.name}</h3>
                                         <p className="text-purple-300">{admin.designation}</p>
                                     </div>
                                 </div>
+
                                 <div className="p-6">
                                     <p className="text-gray-300 mb-4">{admin.comment}</p>
                                     <p className="text-gray-400 mb-6"><span className="text-purple-300">Expertise:</span> {admin.expertise}</p>

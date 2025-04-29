@@ -25,6 +25,7 @@ import Moulya1 from "../Images/Team/Moulya/Moulya1.JPG"
 import Moulya2 from "../Images/Team/Moulya/Moulya2.JPG"
 import Moulya3 from "../Images/Team/Moulya/Moulya3.JPG"
 import Moulya4 from "../Images/Team/Moulya/Moulya4.JPG"
+import Moulya5 from "../Images/Team/Moulya/Moulya5.JPG"
 
 import Pratik from "../Images/Team/Pratik.jpeg"
 import Pratik1 from "../Images/Team/Pratik2.JPG"
@@ -204,9 +205,9 @@ export default function Team() {
             bio: "James combines user research with creative design to craft engaging digital experiences. His user-centered approach has resulted in significant improvements in user satisfaction and engagement metrics.",
             projects: ["E-commerce UX Redesign", "Mobile App User Flow", "Design System Creation"],
             gallery: [
-                Moulya4,
+                Moulya5,
                 Moulya3,
-
+                Moulya4,
             ]
         }
     ];

@@ -8,6 +8,7 @@ import HomePg from './Components/Home';
 import AboutPg from './Components/About';
 import Clientspg from "./Components/Clients"
 import Projectpg from "./Components/Projects"
+import Gallery from './Components/Gallery';
 import Team from './Components/Team';
 import heroimg from './Images/heroImg.jpg'
 
@@ -548,13 +549,14 @@ const App = () => {
             <Route path="/projects" element={<Projectpg />} />
             <Route path="/about" element={<AboutPg />} />
             <Route path="/clients" element={<Clientspg />} />
+            <Route path="/gallery" element={<Gallery />} />
             {/* <Route path="/team" element={<Team />} />
             <Route path="/contact" element={<Contact />} /> */}
-
           </Routes>
           <AboutPg />
           <Projectpg />
           <Team />
+          <Gallery />
           <Clientspg />
         </main>
  

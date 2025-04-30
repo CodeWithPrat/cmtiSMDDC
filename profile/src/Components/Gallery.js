@@ -625,15 +625,19 @@ const Gallery = () => {
         setSelectedProject(null);
     };
 
+    // Ref for category tabs navigation
+    const categoryTabsRef = useRef(null);
+    
     // For the Gallery page and HomePage section functionality
     const toggleFullGallery = () => {
         setIsPageOpen(!isPageOpen);
+        // Scroll handling is managed in useEffect
     };
 
     const GalleryContent = () => (
         <div className="w-full">
             {/* Animated Category Tabs */}
-            <div className="w-full flex justify-center mb-8 overflow-x-auto pb-2">
+            <div ref={categoryTabsRef} className="w-full flex justify-center mb-8 overflow-x-auto pb-2">
                 <div className="flex space-x-2 md:space-x-4">
                     {categories.map((category) => (
                         <motion.button
@@ -680,8 +684,11 @@ const Gallery = () => {
 
     // This is what we'll show on the home page as a preview section - now showing one card from each category
     const GalleryPreview = () => {
-        // Get first item from each category
-        const featuredProjects = categories.map(category => galleryData[category][0]);
+        // Create an array of featured projects with their categories
+        const featuredProjectsWithCategories = categories.map(category => ({
+            project: galleryData[category][0],
+            category: category
+        }));
 
         return (
             <section className="w-full py-16 bg-gradient-to-b from-gray-900 to-black">
@@ -711,16 +718,16 @@ const Gallery = () => {
                         </motion.p>
                     </div>
 
-                    {/* Preview Grid - Show first item from each category */}
+                    {/* Preview Grid - Show first item from each category with correct category label */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                        {featuredProjects.map((project) => (
+                        {featuredProjectsWithCategories.map(({ project, category }) => (
                             <div key={project.id} className="relative">
                                 <GalleryCard
                                     project={project}
                                     onClick={handleProjectClick}
                                 />
                                 <div className="absolute top-2 left-2 bg-purple-600 text-white text-xs px-2 py-1 rounded-full">
-                                    {categories.find(cat => galleryData[cat].some(p => p.id === project.id))}
+                                    {category}
                                 </div>
                             </div>
                         ))}
@@ -748,6 +755,16 @@ const Gallery = () => {
             </section>
         );
     };
+
+    // Focus on the category tabs section when opening the full gallery
+    useEffect(() => {
+        if (isPageOpen && categoryTabsRef.current) {
+            // Small timeout to ensure DOM is ready
+            setTimeout(() => {
+                categoryTabsRef.current.scrollIntoView({ behavior: 'instant', block: 'start' });
+            }, 10);
+        }
+    }, [isPageOpen]);
 
     // This is used for the full gallery page
     if (isPageOpen) {

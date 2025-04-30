@@ -12,10 +12,12 @@ export const companyInfo = {
   
   export const navigationLinks = [
     { id: 1, name: "Home", path: "/" },
-    { id: 2, name: "Projects", path: "/projects" },
-    { id: 3, name: "About", path: "/about" },
+    { id: 2, name: "About", path: "/about" },
+    { id: 3, name: "Projects", path: "/projects" },
     { id: 4, name: "Team", path: "/team" },
-    { id: 5, name: "Contact", path: "/contact" }
+    { id: 5, name: "Gallery", path: "/gallery" },
+    { id: 6, name: "Clients", path: "/clients" },
+    { id: 7, name: "Contact", path: "/contact" }
   ];
   
   export const socialMedia = [
